@@ -18,16 +18,16 @@ fn main() {
         Err(_) => panic!("Could not open file"),
     };
 
-    println!("File size: {} bytes", file.chunks_size);
-    println!("Form type: {}", file.form_type);
+    println!("RIFF  {}", file.chunks_size);
+    println!("  code: {}", file.form_type);
 
-    print_chunks(file.chunks(), 0);
+    print_chunks(file.chunks(), 1);
 }
 
 fn get_indent(level: i32) -> String {
     let mut string = String::new();
 
-    for i in 0..level {
+    for _ in 0..level {
         string += "  ";
     }
 
@@ -44,13 +44,14 @@ fn print_chunks<I: Iterator<Item = Chunk>>(chunks: I, indent_level: i32) {
                 identifier,
                 data: _,
             } => {
-                println!("{indent}{identifier}: {}", size);
+                println!("{indent}{identifier}  {}", size);
             }
             Chunk::List {
                 data_type,
                 sub_chunks,
             } => {
-                println!("{indent}LIST {} items: {}", size, data_type);
+                println!("{indent}LIST  {size}");
+                println!("{indent}  code: {data_type}");
 
                 print_chunks(sub_chunks.iter().cloned(), indent_level + 1);
             }

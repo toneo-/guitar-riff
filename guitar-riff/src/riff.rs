@@ -1,4 +1,4 @@
-use std::{fs::File, io::Read, marker::PhantomData, path::PathBuf};
+use std::{fs::File, io::Read, path::PathBuf};
 
 use byteorder::{LittleEndian, ReadBytesExt};
 

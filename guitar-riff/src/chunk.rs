@@ -25,7 +25,6 @@ pub enum Chunk {
 }
 
 impl Chunk {
-    // TODO: This accounting is wrong, the MS executable generates different values.
     pub fn outer_size(&self) -> usize {
         match self {
             Chunk::Simple {
@@ -48,7 +47,7 @@ impl Chunk {
             Chunk::List {
                 data_type: _,
                 sub_chunks,
-            } => sub_chunks.iter().map(|x| x.outer_size()).sum::<usize>(),
+            } => 4 + sub_chunks.iter().map(|x| x.outer_size()).sum::<usize>(),
         }
     }
 }
