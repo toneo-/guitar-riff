@@ -1,9 +1,19 @@
+use std::env;
+
 use guitar_riff::prelude::*;
 
-const HARDCODED_PATH: &str = "your path here";
-
 fn main() {
-    let mut file = match RiffFile::open(HARDCODED_PATH) {
+    let args: Vec<String> = env::args().collect();
+    let args_len = args.len();
+
+    // Check for 2 args as the first one is the exe location
+    if args_len != 2 {
+        panic!("Expected exactly one argument, got {args_len}");
+    }
+
+    let file_path = &args[1];
+
+    let mut file = match RiffFile::open(file_path) {
         Ok(x) => x,
         Err(_) => panic!("Could not open file"),
     };
