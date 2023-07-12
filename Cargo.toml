@@ -1,0 +1,2 @@
+[workspace]
+members = ["guitar-riff", "riff-info"]
