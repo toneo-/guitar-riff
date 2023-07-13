@@ -78,6 +78,18 @@ impl RiffFile {
         })
     }
 
+    /// Enumerates the chunks within a file.
+    ///
+    /// This does not enumerate chunks within list chunks. To do that, match against [`Chunk::List`] and examine the `sub_chunks` field.
+    ///
+    /// # Examples
+    /// ```no_run
+    /// use guitar_riff::prelude::*;
+    /// let file = RiffFile::open("MyFile.wav").unwrap();
+    /// for chunk in file.chunks() {
+    ///     // Your code here
+    /// }
+    /// ```
     pub fn chunks<'a>(&'a mut self) -> ChunkIterator<'a, File> {
         ChunkIterator::new(&mut self.file)
     }
@@ -100,6 +112,19 @@ impl<R: Read> RiffStream<R> {
         self.stream
     }
 
+    /// Enumerates the chunks within a stream.
+    /// A stream is anything that implements [`Read`]. For example, a file, network stream, or even a `&[u8]`.
+    ///
+    /// This does not enumerate chunks within list chunks. To do that, match against [`Chunk::List`] and examine the `sub_chunks` field.
+    ///
+    /// # Examples
+    /// ```no_run
+    /// use guitar_riff::prelude::*;
+    /// let stream = /* ... source your stream from anywhere! ... */
+    /// for chunk in stream.chunks() {
+    ///     // Your code here
+    /// }
+    /// ```
     pub fn chunks<'a>(&'a mut self) -> ChunkIterator<'a, R> {
         ChunkIterator::new(&mut self.stream)
     }
