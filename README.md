@@ -12,8 +12,6 @@ This was originally written in a few hours as a simple practice project to get t
 
 `guitar-riff` only supports 32-bit RIFF files. It does not support 64-bit extensions to the format (i.e. DS64).
 
-`riff-info` currently does not report the correct size for LIST chunks.
-
 ## `riff-info`
 
 `riff-info` is a small utility which outputs IDs and sizes for all chunks in a file to demonstrate the library. It accepts one argument, which is a path to a file containing a RIFF container. Output is similar to the `chunks.exe` utility (but not identical).
