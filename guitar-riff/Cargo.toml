@@ -2,6 +2,10 @@
 name = "guitar-riff"
 version = "0.1.0"
 edition = "2021"
+license = "MIT"
+description = "A barebones implementation of the RIFF file format"
+repository = "https://github.com/toneo-/guitar-riff/"
+readme = "../../README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
