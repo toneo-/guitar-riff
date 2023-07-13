@@ -6,11 +6,12 @@ Based on the description of the format at: https://johnloomis.org/cpe102/asgn/as
 
 Whilst this library **can** be used to read RIFF files, there are more mature alternatives out there (such as simply `riff`).
 
-This was originally written in a few hours as a simple practice project to get to grips with rust.
+This was originally written in a few hours as a simple practice project to get to grips with rust, crates.io etc.
 
 ## Limitations
 
-`guitar-riff` only supports 32-bit RIFF files. It does not support 64-bit extensions to the format (i.e. DS64).
+-   No writing capability.
+-   `guitar-riff` only supports 32-bit RIFF files. It does not support 64-bit extensions to the format (i.e. DS64).
 
 ## `riff-info`
 
