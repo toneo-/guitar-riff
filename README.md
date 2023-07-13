@@ -46,3 +46,4 @@ RIFF  353140
 
 -   Ability to modify/add chunks and then save them. Allows writing files.
 -   Ability to quickly enumerate all top-level chunks in a file, without reading all their data into memory. For fast cataloguing purposes.
+-   Tests for reading chunks within LIST chunks. I got lazy and didn't want to write these.
